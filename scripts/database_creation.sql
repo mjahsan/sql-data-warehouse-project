@@ -1,6 +1,6 @@
 /*
 =======================================================================================
-  OBJECTIVEE:
+  OBJECTIVE:
   The main scope of this script is to create a database for datawarehouse along with
   the schemas for the layers through which the data will be modified:
   - Bronze
