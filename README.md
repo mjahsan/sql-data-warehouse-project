@@ -1,4 +1,4 @@
-About the Data Warehouse Project
+# About the Data Warehouse Project
 This repository contains a hands-on Data Warehouse project built using the Medallion Architecture (Bronze → Silver → Gold) approach. The goal of this project is to simulate a real-world data engineering workflow, starting from raw data ingestion to curated, analytics-ready datasets. The project demonstrates how raw files stored within the repository can be processed, transformed, and modeled into structured layers that align with industry best practices for building scalable and maintainable Data Warehouses.
 
 What’s inside this repository:
