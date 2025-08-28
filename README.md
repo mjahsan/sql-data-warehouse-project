@@ -7,7 +7,7 @@ Docs → Diagramatic representation of the ETL, approach adopted, and much more.
 Scripts → SQL and transformation logic to showcase how data is shaped into meaningful warehouse structures under each layers.
 Tests → Validation scripts to ensure data integrity and correctness at silver and gold stages.
 
-Why Medallion Architecture?"
+Why Medallion Architecture?:
 The Medallion approach helps maintain data quality and clarity at each stage:
 Bronze Layer → Stores raw, unprocessed data in its original form.
 Silver Layer → Cleansed and standardized data, ready for further transformation.
