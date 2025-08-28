@@ -1,16 +1,15 @@
 /*
 =======================================================================================
   OBJECTIVE:
-  The main scope of this script is to create a database for datawarehouse along with
-  the schemas for the layers through which the data will be modified:
+  The main scope of this script is to create a database for datawarehouse along with the 
+  schemas for the layers through which the data will be modified:
   - Bronze
   - Silver
   - Gold
 ========================================================================================
 WARNING: 
-  Running this script will delete the existing database named "DataWarehouse"
-  which in turn deletes the existing fles.
-  Please ensure proper backups before proceeding.
+  Running this script will delete the existing database named "DataWarehouse" which in 
+  turn deletes the existing fles. Please ensure proper backups before proceeding.
 ========================================================================================
 */
 
