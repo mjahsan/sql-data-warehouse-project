@@ -45,4 +45,33 @@ from
 row_number() over(partition by cust_id order by cst_create_date desc) flag_last -- flagging duplicates via row_numbers and prioritizing data as per creation date
 from bronze.crm_cust_info
 where cust_id is not null)t -- filtering out the nulls
-where flag_last = 1 -- filtering only the latest data
+where flag_last = 1 -- filtering only the latest data;
+
+print' >>>>>>>>>>>>>>>>>>>>>>>>>>>>> prd_info <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
+
+insert into silver.crm_prd_info (
+    prd_id,
+    cat_id,
+    prd_key,
+    prd_nm,
+    prd_cost,
+    prd_line,
+    prd_start_dt,
+    prd_end_dt
+)
+select
+prd_id,
+replace(substring(prd_key, 1, 5), '-', '_') as cat_id, -- replaced the dash with underscore to match the foriegn key in another table
+substring(prd_key, 7, len(prd_key)) as prd_key, -- seperated another column to reference it to another table
+prd_nm,
+isnull(prd_cost, 0) as prd_cost, -- handled null values
+case upper(trim(prd_line)) -- upper to handled consistency across the column
+	 when 'M' then 'Mountain'
+	 when 'S' then 'Sport'
+	 when 'R' then 'Road'
+	 when 'T' then 'Touring'
+	 else 'N/A'
+end as prd_line,
+cast(prd_start_dt as date) prd_start_dt, -- Removed datetime as there are no seconds/minutes/hours in the source table
+cast(lead(prd_start_dt) over(partition by prd_key order by prd_start_dt asc)-1 as date) as prd_end_dt -- had added a new column to bring consistency among the start and end date
+from bronze.crm_prd_info
