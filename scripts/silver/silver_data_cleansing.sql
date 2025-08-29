@@ -16,6 +16,7 @@ print '=========================================================================
 print ''
 print' >>>>>>>>>>>>>>>>>>>>>>>>>>>>> cust_info <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
   
+truncate table silver.crm_cust_info --- truncating the table to avoid data duplications
 insert into silver.crm_cust_info (
 cust_id,
 cst_key,
@@ -49,6 +50,7 @@ where flag_last = 1 -- filtering only the latest data;
 
 print' >>>>>>>>>>>>>>>>>>>>>>>>>>>>> prd_info <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
 
+truncate table silver.crm_prd_info --- truncating the table to avoid data duplications
 insert into silver.crm_prd_info (
     prd_id,
     cat_id,
