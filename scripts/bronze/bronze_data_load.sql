@@ -4,7 +4,7 @@
   The main scope of this script is to bulk insert data from the source into the table
   created in the previous step. Additional optimization techniques such as setting up
   the elapsed time to check for bottlenecks, try & catch to keep the script running and 
-  catch any error and additional print statements to keep track of the execution.
+  catch any error along with additional print statements to keep track of the execution.
   The whole script has been made as stored procedure to ensure reusability and avoid
   re-iteration of the code.
 ========================================================================================
